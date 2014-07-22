@@ -1,0 +1,9 @@
+{
+  "name":"YapRouter",
+  "description":"A REST request router",
+  "author":"Yaplib Team",
+  "version":"1.0",
+  "src":["YapRouter.php"],
+  "dependencies":[],
+  "options":[]
+}
