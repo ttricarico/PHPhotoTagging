@@ -14,6 +14,12 @@ class PageManager {
   public static function loginGET() {
     global $mysql, $session, $template;
 
+    //if already logged in, skip to dashboard
+    if($session->get('loggedin')) {
+      header('Location: '.baseurl().'/');
+      die();
+    }
+
     $error = false;
 
     if($session->get('loginerror')) {
@@ -22,9 +28,7 @@ class PageManager {
       $session->delete('loginerrordesc');
     }
 
-    $template->display('header.php', array('title' => 'Log In'));
     $template->display('pages/login.php', array('error' => $error));
-    $template->display('footer.php');
   } //loginGET()
 
   public static function loginPOST() {
@@ -47,7 +51,9 @@ class PageManager {
   }//loginPOST()
 
   public static function logoutGET() {
+    session_destroy();
 
+    header('Location: '.baseurl().'/login');
   }//logoutGET()
 
   public static function error404() {
