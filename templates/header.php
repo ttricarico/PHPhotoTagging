@@ -12,6 +12,11 @@
 
   <script src="<?php echo baseurl();?>/js/jquery-2.1.1.min.js" type="text/javascript"></script>
   <script src="<?php echo baseurl();?>/js/bootstrap.min.js" type="text/javascript"></script>
+<?php if($addlscripts) {
+  foreach($addlscripts as $as) {
+    ?><script src="<?php echo $as; ?>" type="text/javascript"></script><?php echo PHP_EOL;
+  }
+} ?>
 </head>
 <body>
 
@@ -29,10 +34,12 @@
           </li>
           <li>
             <form class="navbar-form navbar-right" role="search">
-              <div class="form-group">
+              <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search Photos">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                </span>
               </div>
-              <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
             </form>
           </li>
           <li class="dropdown">

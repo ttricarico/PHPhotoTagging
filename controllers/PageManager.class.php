@@ -57,6 +57,21 @@ class PageManager {
   }//logoutGET()
 
   public static function error404() {
-
+    echo "<h1>404</h1>";
   } //error404
+
+  /** upload functions **/
+  public static function uploadPhotoGET() {
+    global $session, $template, $mysql;
+    $template->display('header.php', array('title' => 'Main Page',
+                                           'addlscripts' => array(baseurl().'/js/uploading.js')
+                                          )
+                      );
+    $template->display('pages/PhotoUpload.php');
+    $template->display('footer.php');
+  }
+
+  public static function uploadPhotoPOST() {
+
+  }
 }

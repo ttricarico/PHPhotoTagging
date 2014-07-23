@@ -27,21 +27,22 @@ $route->get('/logout', array('PageManager', 'logoutGET'));
 $route->get('/', array('PageManager', 'mainPage'));
 
 /** picture stuff **/
-$route->get('/photo', array('PhotoManager', 'listAll'));
-$route->get('/photo/(\w+)', array('PhotoManager', 'showPhoto'));
-$route->get('/photo/(\w+)/tag', array('PhotoManager', 'tagPhotoGET'));
-$route->post('/photo/(\w+)/tag', array('PhotoManager', 'tagPhotoPOST'));
-$route->get('/photo/(\w+)/edit', array('PhotoManager', 'editPhotoGET'));
-$route->post('/photo/(\w+)/edit', array('PhotoManager', 'editPhotoPOST'));
-$route->get('/photo/(\w+)/delete', array('PhotoManager', 'deletePhotoGET'));
-$route->post('/photo/(\w+)/delete', array('PhotoManager', 'deletePhotoPOST'));
-$route->post('/photo/(\w+)/comment', array('PhotoManager', 'addCommentPOST'));
+$route->get('/photo/upload', array('PageManager', 'uploadPhotoGET'));
+$route->post('/photo/upload', array('PageManager', 'uploadPhotoPOST'));
+
+$route->get('/photo', array('PageManager', 'listAllPhotos'));
+$route->get('/photo/(\w+)', array('PageManager', 'showPhoto'));
+$route->get('/photo/(\w+)/tag', array('PageManager', 'tagPhotoGET'));
+$route->post('/photo/(\w+)/tag', array('PageManager', 'tagPhotoPOST'));
+$route->get('/photo/(\w+)/edit', array('PageManager', 'editPhotoGET'));
+$route->post('/photo/(\w+)/edit', array('PageManager', 'editPhotoPOST'));
+$route->get('/photo/(\w+)/delete', array('PageManager', 'deletePhotoGET'));
+$route->post('/photo/(\w+)/delete', array('PageManager', 'deletePhotoPOST'));
+$route->post('/photo/(\w+)/comment', array('PageManager', 'addCommentPOST'));
 
 //future - put albums
 
-/** upload functions **/
-$route->get('/photo/upload', array('PhotoManager', 'uploadPhotoGET'));
-$route->post('/photo/upload', array('PhotoManager', 'uploadPhotoPOST'));
+
 
 /** 404 page **/
 $route->get('.*', array('PageManager', 'error404'));

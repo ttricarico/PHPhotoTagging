@@ -1,3 +1,25 @@
 body{
   padding-top:55px;
 }
+
+#uploadbox {
+  border: 4px dashed #CFCFCF;
+  padding:1.25em;
+  height:250px;
+  display:table;
+  width:100%;
+  transition: all .3s ease-in-out;
+}
+#uploadbox.droppable {
+  border: 4px dashed rgba(0, 150, 255, 0.3);
+  color:#CCCCCC;
+}
+#uploadbox > .instructions {
+  display:table-cell;
+  vertical-align:middle;
+  text-align:center;
+  font-size:175%;
+}
+#uploadinfo {
+
+}
