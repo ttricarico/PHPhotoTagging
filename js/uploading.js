@@ -1,27 +1,31 @@
 jQuery(document).ready(function($) {
-  $('#uploadbox').on('dragover', function(e) {
-    e.preventDefault();
+  var _upload = document.getElementById('uploadbox'),
+      $upload = $(_upload);
 
-    //do this once
-    if(!$(this).hasClass('droppable')) {
-        $(this).addClass('droppable');
-    }
+  _upload.addEventListener('drop', function(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
 
-  });
-  $('#uploadbox').on('dragleave', function(e) {
-    e.preventDefault();
-    if($(this).hasClass('droppable')){
-      $(this).removeClass('droppable');
-    }
-  });
-  $('#uploadbox').on('drop', function(e) {
-    e.preventDefault();
-    if($(this).hasClass('droppable')){
-      $(this).removeClass('droppable');
-    }
+    var files = evt.target.files || evt.dataTransfer.files;
 
+    for(var i = 0; file = files[i]; i++) {
+      $.ajax({
+        //settings
+      });
+      console.log(file);
+    }
+    $upload.removeClass('droppable');
   });
-  $('#uploadfile').on('change', function(e) {
-    console.log(e);
+  _upload.addEventListener('dragover', function(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    if(!$upload.hasClass('droppable')) {
+      $upload.addClass('droppable');
+    }
+  });
+  _upload.addEventListener('dragleave', function(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    $upload.removeClass('droppable');
   });
 });
