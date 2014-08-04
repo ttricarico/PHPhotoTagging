@@ -4,14 +4,14 @@
     Drag and drop photos here.
   </div>
 </label>
-<input type="file" multiple="true" name="uploadfile[]" id="uploadfile" class="hidden" />
-<div id="uploadinfo">
 
+<div id="uploading-info">
+  <div id="uploading-status">
+    <h4>File Uploads</h4>
+  </div>
+
+  <div id="uploading-sidebar">
+    <h4>Blarg</h4>
+    Some text here
+  </div>
 </div>
-
-<!-- div id="uploadform">
-  <h3>Or select the files to upload</h3>
-  <form role="form">
-
-  </form>
-</div -->

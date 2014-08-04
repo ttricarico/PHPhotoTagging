@@ -20,7 +20,7 @@
   }
 ?>
 
-  <form role="form" action="http://localhost/PHPhotoTagging/login" method="POST">
+  <form role="form" action="<?php echo baseurl(); ?>/login" method="POST">
     <div class="form-group">
       <label for="user">Email address</label>
       <input name="user" id="user" type="text" class="form-control" />

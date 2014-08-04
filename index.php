@@ -11,6 +11,12 @@ $route = yap('YapRouter');
 $users = yap('YapUsers');
 $session = yap('YapSession');
 
+//if not logged in, send to login screen
+if(!$session->get('loggedin') && $_REQUEST['__route__'] !== '/login') {
+  header('Location: '.baseurl().'/login');
+  die();
+}
+
 $template = yap('YapTemplate');
 $template->setDirectory(realpath(dirname(__FILE__).'/templates'));
 
@@ -32,6 +38,7 @@ $route->post('/photo/upload', array('PageManager', 'uploadPhotoPOST'));
 
 $route->get('/photo', array('PageManager', 'listAllPhotos'));
 $route->get('/photo/(\w+)', array('PageManager', 'showPhoto'));
+$route->get('/photo/(\w+).(\w+)', array('PageManager', 'showOnlyPhoto'));
 $route->get('/photo/(\w+)/tag', array('PageManager', 'tagPhotoGET'));
 $route->post('/photo/(\w+)/tag', array('PageManager', 'tagPhotoPOST'));
 $route->get('/photo/(\w+)/edit', array('PageManager', 'editPhotoGET'));
@@ -40,8 +47,11 @@ $route->get('/photo/(\w+)/delete', array('PageManager', 'deletePhotoGET'));
 $route->post('/photo/(\w+)/delete', array('PageManager', 'deletePhotoPOST'));
 $route->post('/photo/(\w+)/comment', array('PageManager', 'addCommentPOST'));
 
-//future - put albums
 
+$route->get('/phpinfo', 'phpinfo');
+// future - put albums
+
+// future - blog stuff
 
 
 /** 404 page **/
@@ -49,11 +59,5 @@ $route->get('.*', array('PageManager', 'error404'));
 $route->post('.*', array('PageManager', 'error404'));
 
 /** run the routing table **/
-//if not logged in, send to login screen
-if(!$session->get('loggedin') && $_REQUEST['__route__'] !== '/login') {
-  header('Location: '.baseurl().'/login');
-  die();
-}
-//otherwise, just run
 
 $route->run();

@@ -1,5 +1,6 @@
 body{
   padding-top:55px;
+  padding-bottom:3em;
 }
 
 #uploadbox {
@@ -19,6 +20,52 @@ body{
   text-align:center;
   font-size:175%;
 }
-#uploadinfo {
+
+#uplaoding-info{
+
+}
+#uploading-info h4 {
+  
+}
+#uploading-status {
+  display: inline-block;
+  padding: 0.25em;
+  width: 70%;
+}
+#uploading-sidebar {
+  display: inline-block;
+  float: right;
+  padding: 0.25em;
+  width: 25%;
+}
+.uploadinfo{
+  margin-top:2em;
+}
+.progress.upload-progress{
+  height:40px;
+  margin-bottom:.25em;
+}
+.upload-progress .upload-progress-bar {
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 7px;
+  color: #333333;
+}
+.fileinfo {
+  clear:both;
+  overflow:auto;
+}
+.fileinfo .filename{
+
+}
+.fileinfo .filesize {
+
+}
+.filemessage {
+
+}
+/** clickable stuff **/
+.clickable {
+  cursor: pointer;
 
 }

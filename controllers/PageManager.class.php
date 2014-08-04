@@ -72,6 +72,10 @@ class PageManager {
   }
 
   public static function uploadPhotoPOST() {
+    global $session, $mysql;
 
+    $fm = new PhotoManager();
+    $fm->uploadImage();
+    
   }
 }
